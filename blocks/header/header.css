@@ -4,6 +4,7 @@ header .nav-wrapper {
   width: 100%;
   z-index: 2;
   position: fixed;
+  border-bottom: 1px solid #e4e6e7;
 }
 
 header nav {
@@ -145,7 +146,7 @@ header .nav-brand {
 }
 
 header nav .nav-brand img {
-  width: 128px;
+  width: 126px;
   height: auto;
 }
 
@@ -318,5 +319,81 @@ header .breadcrumbs ol li[aria-current] {
     display: block;
     max-width: 1264px;
     padding: 0 32px;
+  }
+}
+
+/* ===== Duke Energy header brand overrides ===== */
+
+/* "For Your Home" label sits next to logo */
+header nav .nav-brand p + p a {
+  font-weight: 400;
+  font-size: var(--body-font-size-s);
+  color: var(--brand-grey-heading);
+}
+
+/* Primary nav (secondary bar) links: Duke teal */
+header nav .nav-sections a:any-link,
+header nav .nav-sections .default-content-wrapper > ul > li {
+  color: var(--brand-teal);
+  font-weight: 500;
+}
+
+header nav .nav-sections a:hover {
+  color: var(--brand-blue);
+  text-decoration: none;
+}
+
+/* Utility/tools links: Duke teal, small */
+header nav .nav-tools a:any-link {
+  color: var(--brand-teal);
+  font-size: var(--body-font-size-xs);
+  font-weight: 400;
+  text-decoration: none;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+header nav .nav-tools ul {
+  display: flex;
+  gap: 16px;
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+  align-items: center;
+}
+
+header nav .nav-tools a:hover {
+  color: var(--brand-blue);
+}
+
+@media (width >= 900px) {
+  /* Two visual bands: top (brand + tools) over a blue secondary bar (sections) */
+  header nav {
+    flex-wrap: wrap;
+    align-items: center;
+    padding-top: 8px;
+    padding-bottom: 0;
+    height: auto;
+  }
+
+  header nav .nav-brand {
+    order: 1;
+  }
+
+  header nav .nav-tools {
+    order: 2;
+    margin-left: auto;
+  }
+
+  /* Secondary bar spans full width below the brand row */
+  header nav .nav-sections {
+    order: 3;
+    flex-basis: 100%;
+    margin-top: 8px;
+    border-top: 1px solid #e4e6e7;
+    padding-top: 8px;
+  }
+
+  header nav .nav-sections ul {
+    gap: 32px;
   }
 }

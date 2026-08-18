@@ -1,0 +1,149 @@
+/* Block: columns-promo — "Featured" promo card */
+
+/* Values extracted from source #featured-product-card computed styles. */
+
+/* The row IS the elevated white card (mobile-first: stacked) */
+.columns-promo > div {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 6px;
+  background-color: var(--brand-white);
+  box-shadow:
+    rgb(0 0 0 / 10%) 0 0.3px 0.5px 0,
+    rgb(0 0 0 / 20%) 0 2px 4px 0;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+/* Image column */
+.columns-promo > div > .columns-promo-img-col {
+  order: 0;
+  padding: 0;
+}
+
+.columns-promo picture {
+  display: block;
+  line-height: 0;
+}
+
+.columns-promo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+/* Text column */
+.columns-promo > div > div:not(.columns-promo-img-col) {
+  order: 1;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  padding: 24px;
+}
+
+/* Eyebrow — first paragraph ("Featured") */
+.columns-promo > div > div:not(.columns-promo-img-col) > p:first-child {
+  margin: 0;
+  color: var(--brand-grey-text);
+  font-family: var(--body-font-family);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 19.2px;
+  letter-spacing: 0.16px;
+  text-transform: uppercase;
+}
+
+/* Heading */
+.columns-promo h3 {
+  margin: 12px 0 0;
+  color: var(--brand-grey-text);
+  font-size: var(--heading-font-size-xl);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 1px;
+}
+
+.columns-promo h3 a:any-link {
+  color: var(--brand-grey-text);
+  text-decoration: none;
+}
+
+.columns-promo h3 a:hover {
+  text-decoration: underline;
+}
+
+/* Description — paragraph following the heading */
+/* stylelint-disable-next-line no-descending-specificity */
+.columns-promo h3 + p {
+  margin: 8px 0 0;
+  color: var(--brand-grey-text);
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-m);
+  line-height: 25.6px;
+}
+
+/* CTA — the "Get Tips" paragraph is plain text (not a link); style it as a button */
+.columns-promo > div > div:not(.columns-promo-img-col) > p:last-child {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 16px 0 0;
+  border: 1px solid var(--brand-teal);
+  border-radius: 6px;
+  padding: 8px 24px;
+  background-color: var(--brand-teal);
+  color: var(--brand-white);
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-m);
+  font-weight: 400;
+  line-height: 1.2;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.columns-promo > div > div:not(.columns-promo-img-col) > p:last-child:hover {
+  background-color: var(--brand-blue);
+  border-color: var(--brand-blue);
+}
+
+/* Desktop: photo left, text right, side by side */
+@media (width >= 900px) {
+  .columns-promo > div {
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  .columns-promo > div > .columns-promo-img-col {
+    width: 50%;
+    order: unset;
+  }
+
+  .columns-promo > div > div:not(.columns-promo-img-col) {
+    width: 50%;
+    order: unset;
+    padding: 32px;
+  }
+
+  .columns-promo img {
+    height: 100%;
+    aspect-ratio: auto;
+  }
+
+  /* CTA sizes to content on desktop */
+  .columns-promo > div > div:not(.columns-promo-img-col) > p:last-child {
+    width: max-content;
+    max-width: 100%;
+  }
+
+  /* stylelint-disable-next-line no-descending-specificity */
+  .columns-promo:hover > div {
+    transform: translateY(-4px);
+    box-shadow:
+      rgb(0 0 0 / 10%) 0 4px 6px -1px,
+      rgb(0 0 0 / 10%) 0 2px 4px -2px;
+  }
+}

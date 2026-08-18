@@ -1,0 +1,37 @@
+{
+  "variantName": "cards-linklist",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-08-18T00:00:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.duke-energy.com/",
+    "originPage": "Duke Energy residential homepage",
+    "blockPosition": "bottom"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "spacious",
+    "purpose": "feature",
+    "imagePattern": "icon"
+  },
+  "contentPattern": {
+    "structure": "icon + heading + vertical list of links per card",
+    "buttonCount": 0,
+    "imageCount": 3
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "resource/help card grids grouping related links under a heading",
+      "topic cards with an icon, a title, and a bulleted list of navigational links"
+    ],
+    "notSuitableFor": [
+      "compact single-link quick-action tiles (use cards-quicklinks)",
+      "cards centered on a large image with descriptive prose"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-08-18T00:00:00.000Z"
+  }
+}

@@ -1,0 +1,51 @@
+/*
+ * hero-quickhelp — Duke Energy teal band
+ * Source: https://www.duke-energy.com/  (#main-content > section.bg-teal-darker)
+ *
+ * Full-bleed solar-panels background photo behind a centered white heading
+ * ("How can we help you?"). The teal fill + vertical padding come from
+ * .section.teal-darker (styles.css). The photo is authored in THIS block but
+ * must span the whole band — behind the separate cards-quicklinks block too —
+ * so it is positioned against the section container with a negative z-index:
+ * it paints above the teal fill but below every in-flow element (heading + cards).
+ */
+
+/* The section (…-container) is the positioning context for the full-bleed photo.
+   isolation:isolate makes it establish a stacking context, so the section's own
+   teal background paints at the bottom, the z-index:-1 photo paints above the teal,
+   and the in-flow heading + cards paint above the photo. */
+.hero-quickhelp-container {
+  position: relative;
+  isolation: isolate;
+}
+
+/* Background photo: cover the entire teal band, behind all in-flow content. */
+.hero-quickhelp picture {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  display: block;
+}
+
+.hero-quickhelp img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Picture is authored inside a <p>; drop its default margins. */
+.hero-quickhelp p {
+  margin: 0;
+}
+
+/* Centered white heading. font-size inherits from the global h2 rule
+   (--heading-font-size-xl: 40px desktop / 28px mobile), which matches the
+   source's 40px desktop size. Source line-height 48px == 1.2 ratio. */
+.hero-quickhelp h2 {
+  max-width: 1200px;
+  margin: 0 auto;
+  color: var(--brand-white);
+  line-height: 1.2;
+  letter-spacing: 1px;
+  text-align: center;
+}

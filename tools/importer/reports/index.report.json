@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.duke-energy.com/",
+  "path": "index",
+  "timestamp": "2026-08-18T21:45:56.406Z",
+  "title": "Duke Energy - Home",
+  "template": "homepage",
+  "blocks": [
+    "hero-quickhelp",
+    "cards-quicklinks",
+    "columns-promo",
+    "cards-linklist"
+  ]
+}

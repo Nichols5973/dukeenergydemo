@@ -1,0 +1,76 @@
+{
+  "metadata": {
+    "projectType": "xwalk"
+  },
+  "templates": [
+    {
+      "name": "homepage",
+      "urls": [
+        "https://www.duke-energy.com/"
+      ],
+      "coverageGaps": [],
+      "description": "Duke Energy residential homepage: hero with heading, quick-help link cards, featured promo, and a multi-column 'more for customers' cards section with header and footer.",
+      "blocks": [
+        {
+          "name": "hero-quickhelp",
+          "instances": [
+            "#main-content > section.bg-teal-darker"
+          ]
+        },
+        {
+          "name": "cards-quicklinks",
+          "instances": [
+            "#main-content > section.bg-teal-darker ul"
+          ]
+        },
+        {
+          "name": "columns-promo",
+          "instances": [
+            "#featured-product-card"
+          ]
+        },
+        {
+          "name": "cards-linklist",
+          "instances": [
+            "#main-content > section.flex.flex-col.py-32:nth-of-type(3) ul.group"
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "rc2",
+          "name": "teal-hero-quick-help",
+          "selector": "#main-content > section.bg-teal-darker",
+          "style": "teal-darker",
+          "blocks": [
+            "hero-quickhelp",
+            "cards-quicklinks"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "rc3",
+          "name": "summer-energy-solutions-promo",
+          "selector": "#main-content > section.flex.flex-col.py-32:nth-of-type(2)",
+          "style": null,
+          "blocks": [
+            "columns-promo"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "rc4",
+          "name": "more-for-customers",
+          "selector": "#main-content > section.flex.flex-col.py-32:nth-of-type(3)",
+          "style": null,
+          "blocks": [
+            "cards-linklist"
+          ],
+          "defaultContent": [
+            "#main-content > section.flex.flex-col.py-32:nth-of-type(3) h2"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -34,6 +34,18 @@
     ]
   },
   {
+    "id": "cards-linklist",
+    "components": [
+      "card"
+    ]
+  },
+  {
+    "id": "cards-quicklinks",
+    "components": [
+      "card"
+    ]
+  },
+  {
     "id": "cards",
     "components": [
       "card"
@@ -43,6 +55,21 @@
     "id": "carousel",
     "components": [
       "carousel-item"
+    ]
+  },
+  {
+    "id": "columns-promo",
+    "components": [
+      "column"
+    ]
+  },
+  {
+    "id": "column",
+    "components": [
+      "text",
+      "image",
+      "button",
+      "title"
     ]
   },
   {
