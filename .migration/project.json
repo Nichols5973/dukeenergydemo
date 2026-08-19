@@ -2,14 +2,14 @@
   "type": "xwalk",
   "sites": {
     "dukeenergydemo": {
+      "libraryUrl": "https://main--sta-xwalk-boilerplate--aemysites.aem.page/tools/sidekick/library.json",
       "previewOrg": "Nichols5973",
       "previewSite": "dukeenergydemo",
       "contentHostUrl": "author-p87302-e1492027.adobeaemcloud.com",
       "aemSitePath": "/content/dukeenergydemo",
       "aemAssetsFolderPath": "/content/dam/dukeenergydemo",
       "aemSiteName": "dukeenergydemo",
-      "aemSiteTitle": "dukeenergydemo",
-      "libraryUrl": "https://main--sta-xwalk-boilerplate--aemysites.aem.page/tools/sidekick/library.json"
+      "aemSiteTitle": "dukeenergydemo"
     }
   }
 }
