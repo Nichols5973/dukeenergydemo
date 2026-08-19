@@ -19,11 +19,26 @@ footer .footer p {
   margin: 0;
 }
 
-/* Tagline */
+/* Tagline — centered above the social/app row */
+footer .footer > div:first-child {
+  text-align: center;
+}
+
 footer .footer > div:first-child p {
   font-size: var(--heading-font-size-m);
   font-family: var(--heading-font-family);
   color: #fff;
+}
+
+/* Social + app-download row (2nd section): centered above the menu columns */
+footer .footer > div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding-bottom: 24px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid rgb(255 255 255 / 20%);
 }
 
 /* Link-group headings */
@@ -116,7 +131,7 @@ footer .footer ul.footer-apps {
   flex-wrap: wrap;
   gap: 12px;
   align-items: center;
-  margin-top: 16px;
+  justify-content: center;
 }
 
 footer .footer ul.footer-apps li {
@@ -151,7 +166,7 @@ footer .footer > div:last-child ul {
   }
 
   /* The main link-groups section: lay out headings + lists in columns */
-  footer .footer > div:nth-child(2) {
+  footer .footer > div:nth-child(3) {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 32px;
