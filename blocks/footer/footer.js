@@ -45,10 +45,13 @@ function decorateSocialIcons(footer) {
  * @param {Element} block The footer block element
  */
 export default async function decorate(block) {
-  // load footer as fragment
+  // load footer as fragment. Prefer the metadata/site-root path (AEM delivery,
+  // where '/' maps to the site root); fall back to '/content/footer' for the
+  // local `aem up --html-folder content` dev server.
   const footerMeta = getMetadata('footer');
-  const footerPath = footerMeta ? new URL(footerMeta, window.location).pathname : '/content/footer';
-  const fragment = await loadFragment(footerPath);
+  const footerPath = footerMeta ? new URL(footerMeta, window.location).pathname : '/footer';
+  let fragment = await loadFragment(footerPath);
+  if (!fragment && !footerMeta) fragment = await loadFragment('/content/footer');
 
   // decorate footer DOM
   block.textContent = '';
