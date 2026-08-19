@@ -9,7 +9,9 @@ export default function decorate(block) {
     moveInstrumentation(row, li);
     while (row.firstElementChild) li.append(row.firstElementChild);
     [...li.children].forEach((div) => {
-      if (div.children.length === 1 && div.querySelector('picture')) div.className = 'cards-linklist-card-image';
+      // Image cell may be a <picture> (asset pipeline) or a plain <img>
+      // (richtext image field with an external URL) — treat either as the icon.
+      if (div.children.length === 1 && div.querySelector('picture, img')) div.className = 'cards-linklist-card-image';
       else div.className = 'cards-linklist-card-body';
     });
     ul.append(li);
