@@ -45,13 +45,22 @@ function decorateSocialIcons(footer) {
  * @param {Element} block The footer block element
  */
 export default async function decorate(block) {
-  // load footer as fragment. Prefer the metadata/site-root path (AEM delivery,
-  // where '/' maps to the site root); fall back to '/content/footer' for the
-  // local `aem up --html-folder content` dev server.
+  // load footer as fragment. If a `footer` metadata is set, honor it. Otherwise
+  // try the known content paths in order: AEM delivery serves it at
+  // /content/dukeenergydemo/footer (site root is not remapped), the local
+  // `aem up --html-folder content` dev server serves it at /content/footer, and
+  // /footer covers a site whose root is remapped to the content folder.
   const footerMeta = getMetadata('footer');
-  const footerPath = footerMeta ? new URL(footerMeta, window.location).pathname : '/footer';
-  let fragment = await loadFragment(footerPath);
-  if (!fragment && !footerMeta) fragment = await loadFragment('/content/footer');
+  let fragment = null;
+  if (footerMeta) {
+    fragment = await loadFragment(new URL(footerMeta, window.location).pathname);
+  } else {
+    const candidates = ['/content/dukeenergydemo/footer', '/content/footer', '/footer'];
+    for (let i = 0; i < candidates.length && !fragment; i += 1) {
+      // eslint-disable-next-line no-await-in-loop
+      fragment = await loadFragment(candidates[i]);
+    }
+  }
 
   // decorate footer DOM
   block.textContent = '';
