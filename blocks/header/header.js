@@ -210,6 +210,23 @@ export default async function decorate(block) {
     brandLink.closest('.button-container').className = '';
   }
 
+  // Ensure the brand logo renders. When the nav fragment carries the logo as an
+  // <img> (local doc delivery) it's already present; when it comes from the JCR
+  // (where the logo link is stored as a text button with no image) the first
+  // brand link has no image, so inject the code-synced logo asset. Referencing
+  // /icons/ (served on both local dev and AEM delivery) avoids the fragile
+  // image handling in the JCR title/button components.
+  const brandHomeLink = navBrand.querySelector('a[href]');
+  if (brandHomeLink && !navBrand.querySelector('img')) {
+    const logo = document.createElement('img');
+    logo.src = '/icons/logo-duke.svg';
+    logo.alt = 'Duke Energy homepage';
+    logo.className = 'nav-brand-logo';
+    // Prefer the empty/anchor-only link (the logo link) over the labeled one.
+    const emptyLink = navBrand.querySelector('a[href]:empty') || brandHomeLink;
+    emptyLink.append(logo);
+  }
+
   const navSections = nav.querySelector('.nav-sections');
   if (navSections) {
     navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {
