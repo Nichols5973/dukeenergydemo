@@ -325,8 +325,12 @@ header .breadcrumbs ol li[aria-current] {
 
 /* ===== Duke Energy header brand overrides ===== */
 
-/* Lay out the brand: logo and the "For Your Home" label sit inline together */
-header nav .nav-brand {
+/* Lay out the brand: logo and the "For Your Home" label sit inline together.
+   The nav fragment wraps both <p> elements (logo, label) in a single
+   .default-content-wrapper, so the flex row must be applied to that wrapper
+   (and its parent) — not just .nav-brand. */
+header nav .nav-brand,
+header nav .nav-brand .default-content-wrapper {
   display: flex;
   align-items: center;
   gap: 12px;
