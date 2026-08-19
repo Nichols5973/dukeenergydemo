@@ -84,6 +84,7 @@ footer .footer ul.footer-social {
   flex-wrap: wrap;
   gap: 16px;
   align-items: center;
+  justify-content: center;
 }
 
 footer .footer ul.footer-social li {
