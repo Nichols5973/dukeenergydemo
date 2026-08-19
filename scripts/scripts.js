@@ -48,6 +48,16 @@ export function moveInstrumentation(from, to) {
 }
 
 /**
+ * Returns true when running inside the AEM author environment (the URL origin
+ * contains "author"). Used by content-fragment / headless blocks to switch
+ * between the author GraphQL endpoint and the publish/EDS wrapper service.
+ * @returns {boolean}
+ */
+export function isAuthorEnvironment() {
+  return window?.location?.origin?.includes('author') || false;
+}
+
+/**
  * load fonts.css and set a session storage flag
  */
 async function loadFonts() {
