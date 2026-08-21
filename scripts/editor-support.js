@@ -88,7 +88,9 @@ async function applyChanges(event) {
       const state = getState(block);
       const blockResource = block.getAttribute('data-aue-resource');
       const newBlock = parsedUpdate.querySelector(`[data-aue-resource="${blockResource}"]`);
-      if (newBlock) {
+      if (block.dataset.aueModel === 'form') {
+        return true;
+      } else if (newBlock) {
         newBlock.style.display = 'none';
         block.insertAdjacentElement('afterend', newBlock);
         decorateButtons(newBlock);
@@ -158,7 +160,7 @@ function handleSelection(event) {
   }
 }
 
-function attachEventListners(main) {
+async function attachEventListners(main) {
   [
     'aue:content-patch',
     'aue:content-update',
@@ -173,6 +175,9 @@ function attachEventListners(main) {
   }));
 
   main?.addEventListener('aue:ui-select', handleSelection);
+
+  const module = await import('./form-editor-support.js');
+  module.attachEventListners(main);
 }
 
 attachEventListners(document.querySelector('main'));
